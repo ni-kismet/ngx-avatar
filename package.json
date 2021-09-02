@@ -10,7 +10,8 @@
     "start": "ng serve",
     "build": "ng build",
     "postbuild": "node scripts/copy-artifacts.js",
-    "test": "ng test --watch=false --browsers=ChromeHeadless",
+    "test": "ng test",
+    "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
