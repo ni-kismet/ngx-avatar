@@ -27,7 +27,7 @@ jobs:
     - name: Install
       run: npm ci
     - name: Build
-      run: npm run build
+      run: ng build ngx-avatar
 
   chrome:
     name: Test Chrome on ${{ matrix.os }}
