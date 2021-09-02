@@ -1,0 +1,66 @@
+name: Build, Test, and Publish
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  NODE_VERSION: 14.x
+  CI: true
+
+jobs:
+  build:
+    name: Build on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: Install
+      run: npm ci
+    - name: Build
+      run: npm run build ngx-avatar
+
+  chrome:
+    name: Test Chrome on ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [ubuntu-latest, windows-latest, macOS-latest]
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    - name: Install
+      run: npm ci
+    - name: Test
+      run: npm run test-headless
+      
+  # publish:
+  #   name: Publish to npm
+  #   runs-on: ubuntu-latest
+  #   needs: ['build', 'chrome']
+  #   steps:
+  #   - uses: actions/checkout@v1
+  #   - name: Use Node.js ${{ env.NODE_VERSION }}
+  #     uses: actions/setup-node@v1
+  #     with:
+  #       node-version: ${{ env.NODE_VERSION }}
+  #   - name: Update npm version
+  #     run: bin/update_version.sh
+  #   - name: Install
+  #     run: npm ci
+  #   - name: Build
+  #     run: ng build
+  #   - name: Publish to npm
+  #     run: bin/npm_publish.sh
