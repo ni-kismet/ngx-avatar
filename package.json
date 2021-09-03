@@ -1,14 +1,15 @@
 {
-  "name": "testing",
-  "version": "0.0.0",
+  "name": "@ni-kismet/ngx-avatar",
+  "version": "5.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HaithemMosbahi/ngx-avatar"
+    "url": "https://github.com/ni-kismet/ngx-avatar"
   },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build-prod": "ng build ngx-avatar --prod",
     "postbuild": "node scripts/copy-artifacts.js",
     "test": "ng test",
     "test-headless": "ng test --watch=false --browsers=ChromeHeadless",
