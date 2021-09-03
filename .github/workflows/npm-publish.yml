@@ -28,7 +28,7 @@ jobs:
           node-version: 14
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-      - run: npm build-prod
+      - run: npm run build-prod
       - run: cd dist/ngx-avatar
       - run: npm publish
         env:
