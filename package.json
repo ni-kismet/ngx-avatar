@@ -1,9 +1,9 @@
 {
-  "name": "testing",
-  "version": "0.0.0",
+  "name": "@ni-kismet/ngx-avatar",
+  "version": "5.0.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/HaithemMosbahi/ngx-avatar"
+    "url": "https://github.com/ni-kismet/ngx-avatar"
   },
   "scripts": {
     "ng": "ng",
