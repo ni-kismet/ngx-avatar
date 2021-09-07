@@ -1,7 +1,7 @@
 {
   "name": "@ni-kismet/ngx-avatar",
   "description": "A universal avatar component for Angular applications that fetches / generates avatar based on the information you have about the user.",
-  "version": "5.0.0",
+  "version": "1.0.0",
   "keywords": [
     "angular",
     "avatar",
